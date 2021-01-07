@@ -1,7 +1,7 @@
 from src.assign_table import assignTable
 
 
-class dniProgram:
+class dniProgram():
 
     def __init__(self, number):
         self.number = number

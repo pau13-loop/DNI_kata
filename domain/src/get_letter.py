@@ -1,18 +1,18 @@
-from src.assign_table import assignTable
+from src.assign_table import AssignTable
 
 
-class DNI():
+class LetterLocation():
 
     def __init__(self, number):
         self.number = number
 
     def dni_validation(self):
         for num in self.number:
-            if num in assignTable.number:
+            if num in AssignTable.number:
                 continue
             else:
                 return False
-        if len(self.number) == assignTable.length_numbers_dni:
+        if len(self.number) == AssignTable.length_numbers_dni:
             return True
         else:
             return False
@@ -20,7 +20,7 @@ class DNI():
     def get_letter(self):
         if self.dni_validation() == True:
             letter_position = int(self.number) % 23
-            return assignTable.table[letter_position]
+            return AssignTable.table[letter_position]
         else:
             return False
 

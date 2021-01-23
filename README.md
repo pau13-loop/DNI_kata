@@ -49,7 +49,7 @@ Inside _src_ we have the algorithm of the main program.
 
 Inside _test_ we have all the test cases that have been built to check the functionality of the program and if it runs correctly following the rules of the SOLID DNI Kata.
 
-### Resources
+<!-- ### Resources
 
 The directory of _resources_ how it tells the name has been built to keep all the external resources to the main DNI program of the kata, in it we'll find:
 
@@ -58,6 +58,7 @@ The directory of _resources_ how it tells the name has been built to keep all th
 ###### DNI program explanation
 
 In this document we have the DNI program explained routine by routine with the aim of make easier the comprehesion of the algorithm of the DNI program.
+-->
 
 ---
 

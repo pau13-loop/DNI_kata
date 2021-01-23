@@ -1,50 +1,45 @@
-from src.main import DNI
+from src.main import Dni, AllocationTable
 import pytest
 
 
-def test_dni_validation():
+def test_set_dni_number():
     # Correct test cases
-    assert True == DNI('57955596').dni_validation()
-    assert True == DNI('41967162').dni_validation()
-    assert True == DNI('50170821').dni_validation()
-    assert True == DNI('01781309').dni_validation()
-    assert True == DNI('87015111').dni_validation()
+    assert True == Dni('57955596').validate_dni_number()
+    assert True == Dni('41967162').validate_dni_number()
+    assert True == Dni('50170821').validate_dni_number()
+    assert True == Dni('01781309').validate_dni_number()
+    assert True == Dni('87015111').validate_dni_number()
     #! Not correct test cases
     # Less or more than an allowed length
-    assert False == DNI('1234567').dni_validation()
-    assert False == DNI('123456789').dni_validation()
+    assert False == Dni('1234567').validate_dni_number()
+    assert False == Dni('123456789').validate_dni_number()
     # Mix of letters and numbers
-    assert False == DNI('12as56gr').dni_validation()
-    assert False == DNI('1g3j5d7n').dni_validation()
+    assert False == Dni('12as56gr').validate_dni_number()
+    assert False == Dni('1g3j5d7n').validate_dni_number()
+    # Correct length but not of numbers
+    assert False == Dni('abcdefgh').validate_dni_number()
 
 
-def test_get_letter():
+def test_get_dni_letter():
     # Correct test cases
-    assert 'N' == DNI('57955596').get_letter()
-    assert 'M' == DNI('41967162').get_letter()
-    assert 'R' == DNI('50170821').get_letter()
-    assert 'M' == DNI('01781309').get_letter()
-    assert 'Q' == DNI('87015111').get_letter()
+    assert 'N' == AllocationTable('57955596').get_nif_letter()
+    assert 'M' == AllocationTable('41967162').get_nif_letter()
+    assert 'R' == AllocationTable('50170821').get_nif_letter()
+    assert 'M' == AllocationTable('01781309').get_nif_letter()
+    assert 'Q' == AllocationTable('87015111').get_nif_letter()
+
+
+def test_set_dni():
+    # Correct test cases
+    assert '57955596N' == Dni('57955596').set_dni()
+    assert '41967162M' == Dni('41967162').set_dni()
+    assert '50170821R' == Dni('50170821').set_dni()
+    assert '01781309M' == Dni('01781309').set_dni()
+    assert '87015111Q' == Dni('87015111').set_dni()
     #! Not correct test cases
     # Less or more than an allowed length
-    assert False == DNI('1234567').get_letter()
-    assert False == DNI('123456789').get_letter()
+    assert 'Try again please !' == Dni('1234567').set_dni()
+    assert 'Try again please !' == Dni('123456789').set_dni()
     # Mix of letters and numbers
-    assert False == DNI('12as56gr').get_letter()
-    assert False == DNI('1g3j5d7n').get_letter()
-
-
-def test_get_dni():
-    # Correct test cases
-    assert '57955596N' == DNI('57955596').get_dni()
-    assert '41967162M' == DNI('41967162').get_dni()
-    assert '50170821R' == DNI('50170821').get_dni()
-    assert '01781309M' == DNI('01781309').get_dni()
-    assert '87015111Q' == DNI('87015111').get_dni()
-    #! Not correct test cases
-    # Less or more than an allowed length
-    assert 'Try again please !' == DNI('1234567').get_dni()
-    assert 'Try again please !' == DNI('123456789').get_dni()
-    # Mix of letters and numbers
-    assert 'Try again please !' == DNI('12as56gr').get_dni()
-    assert 'Try again please !' == DNI('1g3j5d7n').get_dni()
+    assert 'Try again please !' == Dni('12as56gr').set_dni()
+    assert 'Try again please !' == Dni('1g3j5d7n').set_dni()

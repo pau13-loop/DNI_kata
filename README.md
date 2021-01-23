@@ -1,6 +1,6 @@
 # SOLID DNI
 
-> In this repository you'll wind the **Christmas Kata** called _SOLID DNI Kata_. You need to write a program that get the letter of the NIF from the numbers of the DNI. The algorithm is quite easy but this kata is about the comprehension of the SOLID principles and start to work with the paradigm of the OOP (Object Oriented Programing).
+> In this repository you'll wind the **Christmas Kata** called _SOLID DNI Kata_. This project has been designed for the Web Development students of the first year. You need to write a program that get the letter of the NIF from the numbers of the DNI. The algorithm is quite easy but this kata is about the comprehension of the SOLID principles and start to work with the paradigm of the OOP (Object Oriented Programing).
 
 ## Table of Contents
 
